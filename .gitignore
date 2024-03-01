@@ -1,0 +1,8 @@
+/node_modules
+/releases
+/server/go-cqhttp*
+/server/node_modules
+/server/groups.txt
+
+.DS_Store
+

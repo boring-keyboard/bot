@@ -1,0 +1,162 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./tailwind.js"></script>
+  <style>
+    #specCaches {
+      margin-top: -0.6rem;
+    }
+  </style>
+</head>
+
+<body
+  style="font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;">
+
+  <div id="container" class="flex flex-col w-80 gap-y-4 p-6 bg-white">
+    <div class="flex flex-row">
+      <div id="status" class="w-20">
+        <!-- <svg id="connectStatusSvg" t="1700286337210" class="icon" viewBox="0 0 1123 1024" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" p-id="1732" width="59" height="59">
+          <path
+            d="M1014.122186 1024H109.753483A109.753483 109.753483 0 0 1 0 914.246517V392.917471a109.753483 109.753483 0 0 1 109.753483-109.753484h904.368703a109.753483 109.753483 0 0 1 109.753484 109.753484v521.329046a109.753483 109.753483 0 0 1-109.753484 109.753483zM109.753483 370.966774a21.950697 21.950697 0 0 0-21.950696 21.950697v521.329046a21.950697 21.950697 0 0 0 21.950696 21.950696h904.368703a21.950697 21.950697 0 0 0 21.950697-21.950696V392.917471a21.950697 21.950697 0 0 0-21.950697-21.950697z"
+            fill="" p-id="1733"></path>
+          <path
+            d="M687.056806 891.198285H307.309753a43.901393 43.901393 0 0 1 0-87.802787h379.747053a43.901393 43.901393 0 0 1 0 87.802787zM175.605573 803.395498a43.901393 43.901393 0 1 0 43.901394 43.901394 43.901393 43.901393 0 0 0-43.901394-43.901394zM432.428725 414.868167a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM561.937835 414.868167a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM690.349411 414.868167a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM818.760986 414.868167a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM947.172562 414.868167a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM175.605573 546.572347a43.901393 43.901393 0 1 0 43.901394 43.901394 43.901393 43.901393 0 0 0-43.901394-43.901394zM304.017149 546.572347a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM432.428725 546.572347a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM561.937835 546.572347a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM690.349411 546.572347a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM818.760986 546.572347a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM818.760986 803.395498a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM175.605573 678.276527a43.901393 43.901393 0 1 0 43.901394 43.901394 43.901393 43.901393 0 0 0-43.901394-43.901394zM304.017149 678.276527a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM432.428725 678.276527a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM561.937835 678.276527a43.901393 43.901393 0 1 0 43.901393 43.901394 43.901393 43.901393 0 0 0-43.901393-43.901394zM948.270096 803.395498a43.901393 43.901393 0 1 0 43.901394 43.901394 43.901393 43.901393 0 0 0-43.901394-43.901394z"
+            fill="" p-id="1734"></path>
+          <path
+            d="M881.320472 766.079314H689.251876a43.901393 43.901393 0 0 1 0-87.802787h192.068596a21.950697 21.950697 0 0 0 21.950696-21.950696v-65.85209a43.901393 43.901393 0 0 1 87.802787 0v65.85209a109.753483 109.753483 0 0 1-109.753483 109.753483zM305.114684 502.670954H175.605573a43.901393 43.901393 0 0 1 0-87.802787h129.509111a43.901393 43.901393 0 0 1 0 87.802787zM563.03537 365.4791a43.901393 43.901393 0 0 1-43.901394-43.901394v-105.363344A109.753483 109.753483 0 0 1 628.88746 106.460879h61.461951a21.950697 21.950697 0 0 0 21.950696-21.950697V43.901393a43.901393 43.901393 0 0 1 87.802787 0v40.608789a109.753483 109.753483 0 0 1-109.753483 109.753484h-61.461951a21.950697 21.950697 0 0 0-21.950697 21.950696v105.363344a43.901393 43.901393 0 0 1-43.901393 43.901394z"
+            fill="" p-id="1735"></path>
+        </svg> -->
+        <img src="./images/wallet.gif" id="connectStatusSvg" class="w-16 h-16"
+          style="margin-left:-0.25rem;margin-top:-0.6rem" />
+        <span id="socket_status" class="text-xl font-bold"></span>
+        <span class="flex gap-x-1">
+          <span id="latency" class="text-black"></span>
+          <span id="connects" class="text-black">
+          </span>
+
+        </span>
+      </div>
+      <div class="w-48 border-l border-black pl-6">
+        <div id="lastMessage" class="hidden">
+
+          <div class="line-clamp-1">
+            <svg t="1700301828219" class="icon inline-block	mr-1" viewBox="0 0 1025 1024" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" p-id="11293" width="16" height="16">
+              <path
+                d="M827.713294 1024c-26.319481-17.956282-49.933221-33.944751-73.546961-49.933221-48.211386-33.206822-95.930819-67.151573-144.880135-99.128513-9.347105-6.149411-23.121787-8.3632-34.928657-8.609176-131.597406-0.737929-263.194811 0-394.792217-0.737929-89.781408-0.491953-166.03411-68.135479-178.578909-156.687005-0.983906-7.133317-0.737929-14.758588-0.737929-22.137881 0-169.231804 0.491953-338.709584-0.245976-507.941388-0.491953-91.01129 71.087197-164.066298 157.178957-176.119145 12.544799-1.721835 25.335575-2.459765 37.880375-2.459765 216.951237 0 433.656498-0.491953 650.607735 0.245976 88.797502 0.245976 166.280086 70.349267 177.349027 158.40884 0.983906 7.379294 0.491953 14.758588 0.491953 22.137881 0 168.493875-0.737929 336.987749 0.245976 505.481624 0.737929 91.995196-71.087197 165.296181-157.178957 177.103051-12.544799 1.721835-25.089599 2.459765-39.110257 3.689647C827.713294 917.73817 827.713294 969.14725 827.713294 1024zM354.700563 433.656498c0.245976-43.291857-35.174634-79.20442-78.466491-79.450396-42.307951-0.245976-78.220514 35.174634-78.712467 77.974538-0.737929 42.799904 35.42061 79.450396 78.466491 79.450396C318.542024 511.877012 354.454587 476.210425 354.700563 433.656498zM590.837964 433.902474c0.245976-43.291857-34.928657-79.20442-78.220514-79.696373-42.307951-0.245976-78.220514 34.928657-78.958443 77.974538-0.737929 42.799904 35.174634 79.450396 78.466491 79.696373C554.433448 511.877012 590.591988 476.210425 590.837964 433.902474zM826.975365 432.918568c0-43.291857-36.15854-79.20442-78.958443-78.712467-42.553927 0.245976-77.974538 36.15854-77.974538 78.712467 0 43.04588 36.404516 79.20442 79.20442 78.712467C791.800731 511.139082 826.975365 475.718472 826.975365 432.918568z"
+                p-id="11294" fill="#000000"></path>
+            </svg>
+            <span id="nickname" class="bg-[#ffc900] p-1 rounded-sm"></span>
+          </div>
+          <div id="lastMessageContent" class="line-clamp-4 pt-1 break-words"></div>
+        </div>
+      </div>
+    </div>
+    <div class="" id="groups">
+    </div>
+    <div id="disable-section" class="hidden bg-black text-white rounded-xl p-4 shadow-xl shadow-gray-300">
+      <div class="text-sm">当前页面不支持设置</div>
+      <div class="mt-2"><button id="redirect"
+          class="bg-[#ffc900] text-black  mr-1 rounded-md py-0.5 px-1 font-bold outline-none">点击跳转</button>至淘宝首页进行设置
+      </div>
+    </div>
+
+    <div id="listen-section" class="flex  flex-col mb-4 hidden">
+      <div class="flex gap-4">
+        <button id="silent" disabled
+          class=" outline-none shadow-xl shadow-gray-300 text-sm pointer-events-auto rounded-xl bg-black font-bold px-4 py-4 leading-5 text-white">停止监听</button>
+
+        <div class="flex flex-1  shadow-gray-300 shadow-xl rounded-xl">
+          <button id="listen"
+            class="flex-1 rounded-xl rounded-r-none	 outline-none text-sm pointer-events-auto bg-slate-900/10 font-bold px-4 py-4 leading-5 text-black"
+            >
+            <div class="">
+              <span class="col-span-2">启动监听</span>
+              <!-- 新品 -->
+
+
+            </div>
+          </button>
+          <input type="checkbox" hidden id="listenNew"></input>
+          <button id="listenNewBtn" class="rounded-xl bg-gray-300 hover:bg-[#cccccc] px-4 text-sm font-bold rounded-l-none	">新</button>
+        </div>
+        <!-- <div class="flex flex-1">
+          <button id="listen"
+            class="flex-1 outline-none shadow-xl shadow-gray-300 text-sm pointer-events-auto rounded-xl bg-slate-900/10 font-bold px-4 py-4 leading-5 text-black">
+            <div class="grid justify-items-center grid-cols-3">
+              <span class="col-span-2">启动监听<span id="listenCnt" class=""></span></span>
+           
+              <input type="checkbox" hidden id="listenNew"></input>
+              <div class="flex items-center gap-x-2" id="listenNewBtn">
+                <div id="listenNewBtnOuterCircle"
+                  class="relative pointer-events-auto h-5 w-9 rounded-full p-1  ease-in-out bg-gray-300">
+                  <div id="listenNewBtnCircle" class="h-3 w-3 rounded-full bg-black shadow-sm ease-in-out">
+                  </div>
+
+                  <span id="listenNewBtnText" class="absolute top-0 h-5 text-black text-xs leading-5">新</span>
+                </div>
+
+              </div>
+            </div>
+          </button>
+          <button>新</button>
+        </div> -->
+
+      </div>
+    </div>
+
+
+    <div id="kw-section" class="flex flex-row hidden gap-x-4">
+      <input id="specs" placeholder="关键字,例:[&QUOT;银&QUOT;,&QUOT;HHKB&QUOT;]"
+        class="border-none flex-1 outline-none bg-slate-900/10 p-4 rounded-xl font-bold text-sm	"></input>
+    </div>
+
+    <div id="specCaches" class="hidden"></div>
+
+    <div id="blacklist-section" class="flex flex-col hidden">
+      <input id="blackspecs" placeholder="黑名单,例:[[&QUOT;蓝&QUOT;,&QUOT;WK&QUOT;],[&QUOT;紫&QUOT;]]"
+        class="border-none outline-none bg-slate-900/10 p-4 rounded-xl font-bold text-sm	"></input>
+    </div>
+    <!-- <div
+      class="flex flex-col pointer-events-auto rounded-lg bg-white p-4 text-[0.8125rem] leading-5 shadow-xl shadow-black/5 hover:bg-slate-50 ring-1 ring-slate-700/10">
+      <span>自动执行</span> -->
+    <div id="auto-section" class=" hidden mt-4 bg-black text-white rounded-xl p-4 shadow-xl shadow-gray-300 ">
+
+      <input type="checkbox" hidden id="autoBuy"></input>
+      <input type="checkbox" hidden id="autoSubmit"></input>
+      <div class="grid gap-4">
+        <div class="flex items-center gap-x-2" id="autoBuyBtn">
+          <div id="autoBuyBtnOuterCircle"
+            class="pointer-events-auto h-5 w-9 rounded-full p-1  ease-in-out bg-[#ffc900]">
+            <div id="autoBuyBtnCircle" class="h-3 w-3 rounded-full bg-black shadow-sm ease-in-out">
+            </div>
+          </div>
+          <div class="font-bold text-sm">
+            <span class="font-light">自动点击</span> 立即购买
+          </div>
+        </div>
+
+        <div class="flex items-center gap-x-2" id="autoSubmitBtn">
+          <div id="autoSubmitBtnOuterCircle"
+            class="pointer-events-auto h-5 w-9 rounded-full p-1  ease-in-out bg-[#ffc900]">
+            <div id="autoSubmitBtnCircle" class="h-3 w-3 rounded-full bg-black shadow-sm ease-in-out">
+            </div>
+          </div>
+          <div class="font-bold text-sm">
+            <span class="font-light">自动点击</span> 提交订单
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- </div> -->
+    <div class="mt-2 text-gray-400" id="versionContainer">version <span id="version">0.4.2</span></div>
+  </div>
+
+  <script src="./popup.js"></script>
+</body>
+
+</html>
