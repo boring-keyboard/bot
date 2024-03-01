@@ -61,7 +61,7 @@ download(packageToDownload, packageDir, { extract: true }).then(() => {
       // 注销监听
       childProcess.stdout.removeAllListeners('data');
       childProcess.kill();
-      // 读取device.json文件, 重写protocol字段为3
+      // 读取device.json文件, 重写protocol字段为2
       const deviceJsonPath = path.join(packageDir, 'device.json');
       const deviceJson = require(deviceJsonPath);
       deviceJson.protocol = 2;
