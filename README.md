@@ -18,7 +18,7 @@
 
 视频演示
 
-https://github.com/boring-keyboard/bot/assets/160836323/75728431-bb20-4709-89bf-062bf629272f
+https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-ca2c98c38905
 
 
 # 安装
