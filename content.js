@@ -124,13 +124,13 @@ class ItemPage {
             this._onReady(async () => {
                 await this._selectSpecs(this.specs);
 
-                // 点击立即购买按钮
-                if (appConfigs.autoBuy) {
-                    this._clickBuy();
-                }
-
-                // @ts-ignore
-                resolve();
+                setTimeout(() => {
+                    // 点击立即购买按钮
+                    if (appConfigs.autoBuy) {
+                        this._clickBuy();
+                    }
+                    resolve();
+                }, 0);
             });
         })
     }
@@ -143,9 +143,9 @@ class ItemPage {
             stop();
             // @ts-ignore
             this.specs = $(SKU_SELECTOR).toArray().map((item) => new Spec(item));
-                
+
             this._clearAllSpecs();
-            
+
             setTimeout(() => {
                 callback();
             }, 0);
@@ -193,11 +193,11 @@ class ItemPage {
 
         // 一个spec的可点击列表
         const validOptions = spec.getValidOptions()
-        .filter((item) =>
-            // @ts-ignore
-            !excludedOptions.includes(item)
-            && !this._inBlacklist(allSelectedOptions, item)
-        );
+            .filter((item) =>
+                // @ts-ignore
+                !excludedOptions.includes(item)
+                && !this._inBlacklist(allSelectedOptions, item)
+            );
 
         for (const kw of (appConfigs.specRules || [])) {
             const selected = await this._selectSpec(specLabelText, validOptions, new KeyWord(kw));
@@ -271,9 +271,21 @@ class ItemPage {
         return ll;
     }
 
-    _clickBuy() {
+    _clickBuy(is_retry = false) {
+        console.log('is_retry', is_retry);
         // @ts-ignore
-        $('button[class*="Actions--leftBtn"]').get(0).click();
+        if ($('button[class*="Actions--leftBtn"]').get(0)) {
+            setTimeout(() => {
+                nextTickReturn(() => {
+                    $('button[class*="Actions--leftBtn"]').get(0).click();
+                }).then(() => {
+                    // 如果弹出了错误提示，重试一次
+                    if ($('div[role="alert"]').get(0) && !is_retry) {
+                        this._clickBuy(true);
+                    }
+                });
+            }, is_retry ? 500 : 0);
+        }
     }
 
     _isReady() {
@@ -322,27 +334,27 @@ class SubmitPage {
 }
 
 class PayPage {
-        static match() {
-            return /alipay\.com/.test(document.URL);
-        }
-    
-        run() {
-            loop((stop) => {
-                const dom = $('#orderDetail').get(0);
-                if (dom) {
-                    stop();
+    static match() {
+        return /alipay\.com/.test(document.URL);
+    }
+
+    run() {
+        loop((stop) => {
+            const dom = $('#orderDetail').get(0);
+            if (dom) {
+                stop();
+                // @ts-ignore
+                chrome.runtime.sendMessage({
+                    cmd: "pay",
+                    value: dom.innerHTML
                     // @ts-ignore
-                    chrome.runtime.sendMessage({
-                        cmd: "pay",
-                        value: dom.innerHTML
-                    // @ts-ignore
-                    }, function (response) {
-    
-                    });
-                }
-            });
-        }
-    
+                }, function (response) {
+
+                });
+            }
+        });
+    }
+
 }
 
 class TradePage {
@@ -360,7 +372,7 @@ class TradePage {
                     cmd: "trade",
                     // @ts-ignore
                     value: dom.textContent.trim()
-                // @ts-ignore
+                    // @ts-ignore
                 }, function (response) {
 
                 });
@@ -372,7 +384,7 @@ class TradePage {
 function loop(callback) {
     const timer = setInterval(() => {
         callback(() => clearInterval(timer));
-    // @ts-ignore
+        // @ts-ignore
     }, LOOP_SPEED);
 }
 
