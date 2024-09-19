@@ -47,18 +47,19 @@ class SpecOption {
     }
 
     getText() {
-        return $(this.element).find('.skuValueName').text();
+        return $(this.element).find(SPEC_OPTION_ITEM_TEXT_SELECTOR).text();
     }
 
     click() {
         return nextTickReturn(() => {
-            $(this.element).find('.skuValueName').get(0).click();
+            $(this.element).find(SPEC_OPTION_ITEM_TEXT_SELECTOR).get(0).click();
         });
     }
 
     isValid() {
-        console.log(this.getText(), $(this.element).hasClass('disabled'));
-        return !($(this.element).hasClass('disabled'));
+        // console.log(this.getText(), $(this.element).hasClass('disabled'));
+        // return !($(this.element).hasClass('disabled'));
+        return !$(this.element).attr('class').match(SPEC_OPTION_ITEM_DISABLED_CLASS_KW);
     }
 }
 
@@ -71,11 +72,14 @@ class Spec {
 
     constructor(element) {
         this.element = element;
-        this.options = $(this.element).find('.skuItem').toArray().map((optionElement) => new SpecOption(optionElement));;
+        this.options = $(this.element).find(SPEC_OPTION_ITEM_SELECTOR).toArray().map((optionElement) => new SpecOption(optionElement));;
     }
 
     async clear() {
+        console.log('clear!!!!!');
+        
         if (this._getSelected()) {
+            console.log('清除已选')
             return nextTickReturn(() => {
                 this._getSelected().click();
             });
@@ -87,11 +91,13 @@ class Spec {
     }
 
     _getSelected() {
-        return $(this.element).find('.skuItem.current').get(0);
+        // return $(this.element).find('.skuItem.current').get(0);
+        // console.log($(this.element).attr('class'))
+        return $(this.element).find(SPEC_OPTION_ITEM_SELECTED_SELECTOR).get(0);
     }
 
     getLabelText() {
-        return $(this.element).find('.skuCateText').text();
+        return $(this.element).find(SPEC_LABEL_SELECTOR).text();
     }
 
     /**
@@ -274,10 +280,10 @@ class ItemPage {
     _clickBuy(is_retry = false) {
         console.log('is_retry', is_retry);
         // @ts-ignore
-        if ($('button[class*="Actions--leftBtn"]').get(0)) {
+        if ($(BUY_BUTTON_SELECTOR).get(0)) {
             setTimeout(() => {
                 nextTickReturn(() => {
-                    $('button[class*="Actions--leftBtn"]').get(0).click();
+                    $(BUY_BUTTON_SELECTOR).get(0).click();
                 }).then(() => {
                     // 如果弹出了错误提示，重试一次
                     if ($('div[role="alert"]').get(0) && !is_retry) {
@@ -289,7 +295,7 @@ class ItemPage {
     }
 
     _isReady() {
-        return $('span[class^="Price--priceText"]').text().trim().length > 0;
+        return $(PRICE_SELECTOR).text().trim().length > 0;
     }
 
     /**
@@ -321,7 +327,7 @@ class SubmitPage {
     run() {
         loop((stop) => {
             // 根据选择器定位提交订单按钮
-            const btn = $('.go-btn');
+            const btn = $(SUBMIT_BTN_SELECTOR);
             if (btn.get(0)) {
                 // 如果找到的就停止探测
                 stop();

@@ -1,3 +1,12 @@
-const SKU_SELECTOR = '.skuWrapper .skuCate';
+const SKU_SELECTOR = 'div[class*="skuItem--"]'; 
 const LOOP_SPEED = 100;
 const SERVER = 'ws://127.0.0.1:4001';
+const BUY_BUTTON_SELECTOR = 'button[class*="leftBtn-"]';
+const SPEC_OPTION_ITEM_TEXT_SELECTOR = 'span[class*="valueItemText-"]';
+const SPEC_OPTION_ITEM_SELECTOR = 'div[class*="valueItem-"]';
+const SPEC_OPTION_ITEM_SELECTED_SELECTOR = 'div[class*="isSelected-"]';
+const SPEC_OPTION_ITEM_DISABLED_CLASS_KW = 'isDisabled';
+const SPEC_LABEL_SELECTOR = 'span[class*="labelText-"]';
+const ERROR_MESSAGE_SELECTOR = 'div[id*="message_dialog"]';
+const PRICE_SELECTOR = 'span[class*="priceText-"]';
+const SUBMIT_BTN_SELECTOR = '#submitOrder div[class*="btn-"]';
