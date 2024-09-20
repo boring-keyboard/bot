@@ -63,27 +63,27 @@ wss.on('connection', function connection(ws) {
     }
     if (message.toString().startsWith('pay:')) {
       const payHTML = message.toString().substring(4);
-      payHTMLList.push(`${dayjs().format('YYYY-MM-DD HH:mm:ss')} ${payHTML}`);
+      // payHTMLList.push(`${dayjs().format('YYYY-MM-DD HH:mm:ss')} ${payHTML}`);
 
     }
     if (message.toString().startsWith('trade:')) {
       const trade = message.toString().substring(6);
-      tradeList.push(`${dayjs().format('YYYY-MM-DD HH:mm:ss')} ${trade}`);
+      // tradeList.push(`${dayjs().format('YYYY-MM-DD HH:mm:ss')} ${trade}`);
 
     }
     if (message.toString().startsWith('specs:')) {
       try {
 
-        const json = JSON.parse(message.toString().substring(6));
-        if (!json) { return; }
-        const {
-          clientId,
-          specs
-        } = json;
-        specsCache[clientId] = {
-          time: new Date(),
-          specs
-        };
+        // const json = JSON.parse(message.toString().substring(6));
+        // if (!json) { return; }
+        // const {
+        //   clientId,
+        //   specs
+        // } = json;
+        // specsCache[clientId] = {
+        //   time: new Date(),
+        //   specs
+        // };
       } catch (e) {
 
       }
