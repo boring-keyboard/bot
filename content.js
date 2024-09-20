@@ -286,7 +286,7 @@ class ItemPage {
                     $(BUY_BUTTON_SELECTOR).get(0).click();
                 }).then(() => {
                     // 如果弹出了错误提示，重试一次
-                    if ($('div[role="alert"]').get(0) && !is_retry) {
+                    if ($(ERROR_MESSAGE_SELECTOR).get(0) && !is_retry) {
                         this._clickBuy(true);
                     }
                 });
