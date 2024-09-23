@@ -9,7 +9,6 @@ let appConfigs;
 function nextTickReturn(fn) {
     const result = fn();
     // return Promise.resolve().then(() => result);
-    // @ts-ignore
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(result);
@@ -122,10 +121,8 @@ class ItemPage {
 
     run() {
         // 改成label,value的形式，因为有可能有多个地方需要选择颜色，这时候就需要label区分了
-        // @ts-ignore
         return new Promise((resolve) => {
             // 如果探测到页面加载完成就执行回调函数里的逻辑
-            // @ts-ignore
             this._onReady(async () => {
                 await this._selectSpecs(this.specs);
 
@@ -146,7 +143,6 @@ class ItemPage {
                 return;
             }
             stop();
-            // @ts-ignore
             this.specs = $(SKU_SELECTOR).toArray().map((item) => new Spec(item));
 
             this._clearAllSpecs();
@@ -199,7 +195,6 @@ class ItemPage {
         // 一个spec的可点击列表
         const validOptions = spec.getValidOptions()
             .filter((item) =>
-                // @ts-ignore
                 !excludedOptions.includes(item)
                 && !this._inBlacklist(allSelectedOptions, item)
             );
@@ -278,7 +273,6 @@ class ItemPage {
 
     _clickBuy(is_retry = false) {
         console.log('is_retry', is_retry);
-        // @ts-ignore
         if ($(BUY_BUTTON_SELECTOR).get(0)) {
             setTimeout(() => {
                 nextTickReturn(() => {
@@ -331,7 +325,6 @@ class SubmitPage {
                 // 如果找到的就停止探测
                 stop();
                 // 点击提交订单那妞
-                // @ts-ignore
                 btn.get(0).click();
             }
         });
@@ -348,11 +341,9 @@ class PayPage {
         //     const dom = $('#orderDetail').get(0);
         //     if (dom) {
         //         stop();
-        //         // @ts-ignore
         //         chrome.runtime.sendMessage({
         //             cmd: "pay",
         //             value: dom.innerHTML
-        //             // @ts-ignore
         //         }, function (response) {
 
         //         });
@@ -372,12 +363,9 @@ class TradePage {
         //     const dom = $('.trade-info .status').get(0);
         //     if (dom) {
         //         stop();
-        //         // @ts-ignore
         //         chrome.runtime.sendMessage({
         //             cmd: "trade",
-        //             // @ts-ignore
         //             value: dom.textContent.trim()
-        //             // @ts-ignore
         //         }, function (response) {
 
         //         });
@@ -389,12 +377,10 @@ class TradePage {
 function loop(callback) {
     const timer = setInterval(() => {
         callback(() => clearInterval(timer));
-        // @ts-ignore
     }, LOOP_SPEED);
 }
 
 function loadAppConfigs(callback) {
-    // @ts-ignore
     chrome.runtime.sendMessage({
         cmd: "loadConfigs",
         url: document.URL
@@ -408,12 +394,9 @@ function loadAppConfigs(callback) {
 }
 
 // 标记是否跳转页面
-// @ts-ignore
 let listen = false;
-// @ts-ignore
 let listenNew = false;
 
-// @ts-ignore
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     try {
         if (request.cmd === 'go') {

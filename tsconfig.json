@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es2017", "dom"],
+    "checkJs": true,
+    "noEmit": true, 
+  },
+  "include": ["./content.js", "./index.d.ts"]
+}
