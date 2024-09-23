@@ -29,7 +29,7 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 - **第4步** 打开开发者模式并加载插件目录
 - **第5步** 加载成功后页面会出现此插件
 
-  <img src="./images/install.png" />
+<img src="./images/install.png" />
 
 - **第6步** 打开插件启用开关
 
