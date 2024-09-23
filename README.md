@@ -1,7 +1,7 @@
 <div align="center">
   <h2 style="text-align: center;">淘宝随机链接抢单插件</h2>
 
-<img src="./images/screenshot.JPG" alt="image info" width="300" border="1" />
+<img src="./images/screenshot.JPG" alt="image info" width="300" border="1" style="border-color:black;" />
 
 <p></p>
 <sup>战利品</sup>
