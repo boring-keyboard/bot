@@ -55,25 +55,21 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 ### 2.2 启动服务
 
 - **第1步** 打开终端
-- **第2步** 进入插件```server```目录
-- **第3步** 创建并编辑```groups.txt```文件，添加需要监听的QQ群号，多个群通过换行分割。例如：
-  
-  ```
+- **第2步** 进入插件`server`目录
+- **第3步** 创建并编辑`groups.txt`文件，添加需要监听的QQ群号，多个群通过换行分割。例如：
+```
   123456
   456789
-  ```
-- **第4步** 安装依赖，在终端中执行
-  
-  ```
+```
+- **第4步** 安装依赖，在终端中执行  
+```
   npm install
-  ```
+```
 - **第5步** 启动服务，在终端中执行
-  
-  ```
+```
   node ./run.js
-  ```
+```
 - **第6步** 按提示扫码登录QQ
-
 
 ## 3 关键字设置说明
 
@@ -87,11 +83,11 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 举例说明
 
   - 想抢购银色、hhkb配列、fr4定位板
-    ```javascript
-    ["银","silver","hhkb","fr4"]
-    ```
+```javascript
+  ["银","silver","hhkb","fr4"]
+```
 
   - 颜色优先银色，其次米白（复古白），配列优先hhkb，其次wkl
-    ```javascript
-    ["银","silver","(米|复古)白","cream","hhkb","wkl"]
-    ```
+```javascript
+  ["银","silver","(米|复古)白","cream","hhkb","wkl"]
+```
