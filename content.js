@@ -4,7 +4,6 @@
  * 注入到页面中的脚本，操作页面DOM完成自动加购逻辑
  */
 
-// @ts-ignore
 let appConfigs;
 
 function nextTickReturn(fn) {
@@ -345,20 +344,20 @@ class PayPage {
     }
 
     run() {
-        loop((stop) => {
-            const dom = $('#orderDetail').get(0);
-            if (dom) {
-                stop();
-                // @ts-ignore
-                chrome.runtime.sendMessage({
-                    cmd: "pay",
-                    value: dom.innerHTML
-                    // @ts-ignore
-                }, function (response) {
+        // loop((stop) => {
+        //     const dom = $('#orderDetail').get(0);
+        //     if (dom) {
+        //         stop();
+        //         // @ts-ignore
+        //         chrome.runtime.sendMessage({
+        //             cmd: "pay",
+        //             value: dom.innerHTML
+        //             // @ts-ignore
+        //         }, function (response) {
 
-                });
-            }
-        });
+        //         });
+        //     }
+        // });
     }
 
 }
@@ -369,21 +368,21 @@ class TradePage {
     }
 
     run() {
-        loop((stop) => {
-            const dom = $('.trade-info .status').get(0);
-            if (dom) {
-                stop();
-                // @ts-ignore
-                chrome.runtime.sendMessage({
-                    cmd: "trade",
-                    // @ts-ignore
-                    value: dom.textContent.trim()
-                    // @ts-ignore
-                }, function (response) {
+        // loop((stop) => {
+        //     const dom = $('.trade-info .status').get(0);
+        //     if (dom) {
+        //         stop();
+        //         // @ts-ignore
+        //         chrome.runtime.sendMessage({
+        //             cmd: "trade",
+        //             // @ts-ignore
+        //             value: dom.textContent.trim()
+        //             // @ts-ignore
+        //         }, function (response) {
 
-                });
-            }
-        });
+        //         });
+        //     }
+        // });
     }
 }
 
