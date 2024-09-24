@@ -1,5 +1,5 @@
 const SKU_SELECTOR = 'div[class*="skuItem--"]'; 
-const LOOP_SPEED = 80;
+const LOOP_SPEED = 67;
 const SERVER = 'ws://127.0.0.1:4001';
 const BUY_BUTTON_SELECTOR = 'button[class*="leftBtn-"]';
 const SPEC_OPTION_ITEM_TEXT_SELECTOR = 'span[class*="valueItemText-"]';
