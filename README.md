@@ -54,8 +54,6 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 
 ### 2.2 启动服务
 
-Windows
-
 - **第1步** 打开终端
 ```
 windows
