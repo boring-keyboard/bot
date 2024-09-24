@@ -42,7 +42,7 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 - **第3步** 在弹出的页面中输入关键字，关键字规则为JSON数组格式，每个元素作为一个关键字，使用Javascript正则表达式匹配
 - **第4步** 点击随机链接，插件会自动选取与关键字相匹配的商品规格
 
-## 2 自动监听QQ群随机链接
+## 2 自动监听<img src="./images/qq.webp" style="height: 22px">QQ群随机链接
 
 自动监听QQ群收到的商品链接并跳转
 
