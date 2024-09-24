@@ -68,16 +68,16 @@ cd {server目录}
 ```
 - **第3步** 创建并编辑`groups.txt`文件，添加需要监听的QQ群号，多个群通过换行分割。例如：
 ```
-  123456
-  456789
+123456
+456789
 ```
 - **第4步** 安装所需的依赖包，在终端中执行
 ```
-  npm install
+npm install
 ```
 - **第5步** 启动服务，在终端中执行
 ```
-  node run.js
+node run.js
 ```
 - **第6步** 按提示扫码登录QQ
 
@@ -94,10 +94,10 @@ cd {server目录}
 
   - 想抢购银色、hhkb配列、fr4定位板
 ```javascript
-  ["银","silver","hhkb","fr4"]
+["银","silver","hhkb","fr4"]
 ```
 
   - 颜色优先银色，其次米白（复古白），配列优先hhkb，其次wkl
 ```javascript
-  ["银","silver","(米|复古)白","cream","hhkb","wkl"]
+["银","silver","(米|复古)白","cream","hhkb","wkl"]
 ```
