@@ -35,14 +35,14 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 
 # 使用
 
-## 1 自动选择规格并提单
+## `1` 自动选择规格并提单
 
 - **第1步** 随便打开一个taobao商品详情页（不能是天猫商品）
 - **第2步** 点击chrome浏览器右上角的扩展程序图标，点击插件图标 ![image info](./images/icon16.png)
 - **第3步** 在弹出的页面中输入关键字，关键字规则为JSON数组格式，每个元素作为一个关键字，使用Javascript正则表达式匹配
 - **第4步** 点击随机链接，插件会自动选取与关键字相匹配的商品规格
 
-## 2 自动监听<img src="./images/qq.webp" style="height: 22px">QQ群随机链接
+## `2` 自动监听<img src="./images/qq.webp" style="height: 22px">QQ群随机链接
 
 自动监听QQ群收到的商品链接并跳转
 
@@ -54,24 +54,36 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 
 ### 2.2 启动服务
 
+Windows
+
 - **第1步** 打开终端
+```
+windows
+可以使用快捷键 `Win + R` 打开运行窗口，输入 `cmd` 或者 `powershell`，然后回车进入命令提示符或 PowerShell
+
+mac
+可以使用`Cmd + 空格` 输入termial打开终端
+```
 - **第2步** 进入插件`server`目录
+```
+cd {server目录}
+```
 - **第3步** 创建并编辑`groups.txt`文件，添加需要监听的QQ群号，多个群通过换行分割。例如：
 ```
   123456
   456789
 ```
-- **第4步** 安装依赖，在终端中执行  
+- **第4步** 安装所需的依赖包，在终端中执行
 ```
   npm install
 ```
 - **第5步** 启动服务，在终端中执行
 ```
-  node ./run.js
+  node run.js
 ```
 - **第6步** 按提示扫码登录QQ
 
-## 3 关键字设置说明
+## `3` 关键字设置说明
 
 关键字用于匹配商品规格，请注意以下几个约定
 
