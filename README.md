@@ -50,7 +50,7 @@ https://github.com/boring-keyboard/bot/assets/160836323/8a36f8d4-4539-41b3-80ef-
 
 ### 2.1 启动前准备
 
-- 安装nodejs v20.x.x
+- 下载安装 [nodejs v20.x.x](https://nodejs.org/en/download/prebuilt-installer)
 
 ### 2.2 启动服务
 
