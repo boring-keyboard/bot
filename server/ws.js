@@ -7,6 +7,13 @@ const htmlDecode = require('js-htmlencode').htmlDecode;
 function log(message) {
   console.log(`${dayjs().format('YYYY-MM-DD HH:mm:ss')} ${message}`);
 }
+// 创建http服务4002端口，用于检查服务是否正常
+const http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('OK');
+  res.end();
+}).listen(4012);
 
 // 获取当前内网IP
 const ifaces = os.networkInterfaces();

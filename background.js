@@ -251,7 +251,7 @@ const messageRouter = {
   },
   'newItemLink': (message) => {
     if (new URL(message.toString().substring(12)).hostname === 'item.taobao.com') {
-      sendMessageToAllContentScriptOfActiveTab({ cmd: 'goNew', url:  message.toString().substring(12) });
+      sendMessageToAllContentScriptOfActiveTab({ cmd: 'goNew', url: message.toString().substring(12) });
     }
   },
 
@@ -303,34 +303,64 @@ function listenMessageRouter() {
 //   dispatchMessage('groups', ['Graystudio 官方6群', 'Graystudio 官方6群', 'Graystudio 官方6群', 'Graystudio 官方6群']);
 // }, 1000);
 
-function connect() {
-
-  webSocket = new WebSocket(SERVER);
-
-  webSocket.onopen = (event) => {
-    console.log('websocket open');
-    keepAlive();
-
-    listenMessageRouter();
-    latencyChecker.start();
-    connectStatus = 1;
-  };
-
-  webSocket.onmessage = (event) => {
-    messageListeners.forEach(listener => {
-      listener(event.data);
+async function checkServerHealth() {
+  try {
+    const response = await fetch('http://localhost:4012', {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer'
     });
-  };
+    return response.status === 200;
+  } catch (error) {
+    console.log('Error:', error);
+    return false;
+  }
+}
 
-  webSocket.onclose = (event) => {
-    console.log('websocket connection closed');
-    latencyChecker.stop();
-    messageListeners = [];
-    webSocket = null;
+function connect() {
+  checkServerHealth().then((isHealthy) => {
+    if (!isHealthy) {
+      console.log('server is not healthy');
+      reconnect();
+      return;
+    }
+    webSocket = new WebSocket(SERVER);
 
-    connectStatus = 0;
-    reconnect();
-  };
+    webSocket.onopen = (event) => {
+      console.log('websocket open');
+      keepAlive();
+
+      listenMessageRouter();
+      latencyChecker.start();
+      connectStatus = 1;
+    };
+
+    webSocket.onmessage = (event) => {
+      messageListeners.forEach(listener => {
+        listener(event.data);
+      });
+    };
+
+    webSocket.onerror = (event) => {
+      console.log('websocket error');
+    };
+
+    webSocket.onclose = (event) => {
+      console.log('websocket connection closed');
+      latencyChecker.stop();
+      messageListeners = [];
+      webSocket = null;
+
+      connectStatus = 0;
+      reconnect();
+    };
+  });
 }
 
 function reconnect() {
