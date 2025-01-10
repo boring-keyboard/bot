@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "bot",
     "description": "bot",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "author": "nn",
     "background": {
       "service_worker": "background.js"
