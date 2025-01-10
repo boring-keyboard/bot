@@ -159,7 +159,7 @@ connectWithRetry('ws://127.0.0.1:8080/event', (cqSocket) => {
   });
 
   const regexp = /https:\/\/item\.taobao\.com[^\s\u4e00-\u9fa5]+/i;
-  const regexpM = /https:\/\/m\.tb\.cn[^\s\u4e00-\u9fa5]+/i;
+  // const regexpM = /https:\/\/m\.tb\.cn[^\s\u4e00-\u9fa5]+/i;
 
   cqSocket.on('message', function message(data) {
     log('received: ' + data.toString());
@@ -167,7 +167,7 @@ connectWithRetry('ws://127.0.0.1:8080/event', (cqSocket) => {
       data = JSON.parse(data);
       if (data && data.message_type === 'group') {
         const message = data.message;
-        let matchRet = message.match(regexp) || message.match(regexpM);
+        let matchRet = message.match(regexp);
         if (matchRet) {
           log('匹配' + matchRet[0]);
           wss.clients.forEach(function (client) {
