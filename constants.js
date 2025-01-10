@@ -1,7 +1,7 @@
 const SKU_SELECTOR = 'div[class*="skuItem--"]'; 
 const LOOP_SPEED = 67;
 const SERVER = 'ws://127.0.0.1:4001';
-const BUY_BUTTON_SELECTOR = 'button[class*="leftBtn-"]';
+const BUY_BUTTON_SELECTOR = 'div[class*="Actions--"] div[class*=LeftButtonList--] button[class*="btn-"]';
 const SPEC_OPTION_ITEM_TEXT_SELECTOR = 'span[class*="valueItemText-"]';
 const SPEC_OPTION_ITEM_SELECTOR = 'div[class*="valueItem-"]';
 const SPEC_OPTION_ITEM_SELECTED_SELECTOR = 'div[class*="isSelected-"]';

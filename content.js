@@ -288,7 +288,8 @@ class ItemPage {
     }
 
     _isReady() {
-        return $(PRICE_SELECTOR).text().trim().length > 0;
+        return $(SKU_SELECTOR) && $(SKU_SELECTOR).toArray().length > 0;
+        // return $(PRICE_SELECTOR).text().trim().length > 0;
     }
 
     /**
